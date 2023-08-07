@@ -1,0 +1,100 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:31:59: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m    val pairRatings = data.join(weightedRatings.as("r1"), $"Item1" === $"r1.ItemID")[0m
+[0m[[0m[31merror[0m] [0m[0m                                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:31:72: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m    val pairRatings = data.join(weightedRatings.as("r1"), $"Item1" === $"r1.ItemID")[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:32:39: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .join(weightedRatings.as("r2"), $"Item2" === $"r2.ItemID")[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:32:52: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .join(weightedRatings.as("r2"), $"Item2" === $"r2.ItemID")[0m
+[0m[[0m[31merror[0m] [0m[0m                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:33:15: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .select($"Item1", $"Item2", $"r1.weightedRating".alias("rating1"), $"r2.weightedRating".alias("rating2"))[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:33:25: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .select($"Item1", $"Item2", $"r1.weightedRating".alias("rating1"), $"r2.weightedRating".alias("rating2"))[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:33:35: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .select($"Item1", $"Item2", $"r1.weightedRating".alias("rating1"), $"r2.weightedRating".alias("rating2"))[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:33:74: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .select($"Item1", $"Item2", $"r1.weightedRating".alias("rating1"), $"r2.weightedRating".alias("rating2"))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:88:15: not found: value logsSchema[0m
+[0m[[0m[31merror[0m] [0m[0m      .schema(logsSchema)[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:94:15: not found: value itemsSchema[0m
+[0m[[0m[31merror[0m] [0m[0m      .schema(itemsSchema)[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:100:15: not found: value usersSchema[0m
+[0m[[0m[31merror[0m] [0m[0m      .schema(usersSchema)[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:106:8: overloaded method value schema with alternatives:[0m
+[0m[[0m[31merror[0m] [0m[0m  (schemaString: String)org.apache.spark.sql.DataFrameReader <and>[0m
+[0m[[0m[31merror[0m] [0m[0m  (schema: org.apache.spark.sql.types.StructType)org.apache.spark.sql.DataFrameReader[0m
+[0m[[0m[31merror[0m] [0m[0m cannot be applied to (com.github.ybnt.EcommerceCustomerData.Ratings.type)[0m
+[0m[[0m[31merror[0m] [0m[0m      .schema(Ratings)[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:108:11: not found: type Rating[0m
+[0m[[0m[31merror[0m] [0m[0m      .as[Rating][0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:113:20: not found: value ratings[0m
+[0m[[0m[31merror[0m] [0m[0m    val itemPair = ratings.as("ratings1")[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:114:13: not found: value ratings[0m
+[0m[[0m[31merror[0m] [0m[0m      .join(ratings.as("ratings2"), $"ratings1.UserID" === $"ratings2.UserID" && $"ratings1.ItemID" < $"ratings2.ItemID")[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:114:37: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .join(ratings.as("ratings2"), $"ratings1.UserID" === $"ratings2.UserID" && $"ratings1.ItemID" < $"ratings2.ItemID")[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:114:60: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .join(ratings.as("ratings2"), $"ratings1.UserID" === $"ratings2.UserID" && $"ratings1.ItemID" < $"ratings2.ItemID")[0m
+[0m[[0m[31merror[0m] [0m[0m                                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:114:82: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .join(ratings.as("ratings2"), $"ratings1.UserID" === $"ratings2.UserID" && $"ratings1.ItemID" < $"ratings2.ItemID")[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:114:103: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .join(ratings.as("ratings2"), $"ratings1.UserID" === $"ratings2.UserID" && $"ratings1.ItemID" < $"ratings2.ItemID")[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:115:15: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .select($"ratings1.ItemID".alias("item1"),[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:116:9: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m        $"ratings2.ItemID".alias("item2"),[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:117:9: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m        $"ratings1.rating".alias("rating1"),[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:118:9: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m        $"ratings2.rating".alias("rating2")[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:135:15: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m      .select($"item1",[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:136:19: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m        when(size($"similarItems") >= 1, $"similarItems".getItem(0).alias("item2")),[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:136:42: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m        when(size($"similarItems") >= 1, $"similarItems".getItem(0).alias("item2")),[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:137:21: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m          when(size($"similarItems") >= 2, $"similarItems".getItem(1).alias("item3")),[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:137:44: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m          when(size($"similarItems") >= 2, $"similarItems".getItem(1).alias("item3")),[0m
+[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:138:23: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m            when(size($"similarItems") >= 3, $"similarItems".getItem(2).alias("item4")),[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:138:46: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m            when(size($"similarItems") >= 3, $"similarItems".getItem(2).alias("item4")),[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:139:25: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m              when(size($"similarItems") >= 4, $"similarItems".getItem(3).alias("item5")))[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/y_bin/spark/ecommerceDataETL/src/main/scala/com/github/ybnt/EcommerceCustomerData.scala:139:48: value $ is not a member of StringContext[0m
+[0m[[0m[31merror[0m] [0m[0m              when(size($"similarItems") >= 4, $"similarItems".getItem(3).alias("item5")))[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m32 errors found[0m

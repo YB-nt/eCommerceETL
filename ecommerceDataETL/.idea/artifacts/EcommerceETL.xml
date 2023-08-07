@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="EcommerceETL">
+    <output-path>$PROJECT_DIR$/out/artifacts/EcommerceETL</output-path>
+    <root id="archive" name="EcommerceETL.jar">
+      <element id="module-output" name="EcommerceDataETL" />
+    </root>
+  </artifact>
+</component>
