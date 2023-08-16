@@ -27,25 +27,32 @@ class Loggenerator:
         return random.choice(['facebook', 'direct', 'instagram', 'google', 'naver', 'etc'])
     
     def user_genre(self):
-        temp_id = self.fake.unique.random_number(digits=6)
-        format_Id = str(temp_id).zfill(6)
-        return format_Id
+        return random.randrange(100001,100501)
     
-    def timestemp(self):
-        weights_time = random.randint(0,59)
-        time = datetime(now.year, now.month, now.day, hour=10, minute=30)
-        return self.fake.date_time_this_decade()
+    def timestamp(self):
+        make_date = self.fake.date_object()
+        
+        time_list = [[0,4],[4,6],[6,9],[9,11],[11,14],[14,16],[16,18],[18,21],[21,0]]
+        weights = [1,6,10,19,11,11,17,17,8] 
+        
+        apply_time = random.choices(time_list ,weights=weights)[0]
+        
+        time_setting = [datetime.strptime(str(make_date)+' '+str(apply_time[0]) + ':00:00', '%Y-%m-%d %H:%M:%S'),datetime.strptime(str(make_date)+' '+str(apply_time[-1]) + ':00:00', '%Y-%m-%d %H:%M:%S')]
+        return self.fake.date_between(time_setting[0],time_setting[-1])
     
     def get_preference(self):
-        return random.randrange(1, 10)
+        return random.randrange(1, 5)
+    
+    def target_item(self):
+        return random.randrange(100001,100501)
 
     def generate_customer(self):
-        return [self.user_genre(), self.action_genre(), self.access_path(), self.timestemp(),self.get_preference()]
+        return [self.user_genre(), self.action_genre(), self.access_path(), self.timestamp(),self.get_preference(),self.target_item()]
     
     def write_csv(self):
-        with open(f'log_{time.time()}.csv', 'w', newline='') as csvfile:
+        with open(f'data/log.csv', 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow(['ID', 'Action', 'Access_path', 'timestamp','preference'])
+            writer.writerow(['ID', 'Action', 'Access_path', 'timestamp','preference','ItemID'])
             for _ in range(self.DATA_SIZE):
                 writer.writerow(self.generate_customer())
 

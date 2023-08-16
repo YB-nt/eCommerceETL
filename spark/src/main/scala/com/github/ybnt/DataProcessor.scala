@@ -79,6 +79,18 @@ object DataProcessor {
     }
   }
 
+
+  def loadData(df:DataFrame,dbUrl:String,tableName:String,userName:String,password: String): Unit ={
+    df.write
+      .format("jdbc")
+      .option("url", dbUrl)
+      .option("dbtable", tableName)
+      .option("user", userName)
+      .option("password", password)
+      .mode("overwrite")
+      .save()
+  }
+
   def addRating(logs: Dataset[Logs]): Dataset[Ratings] ={
     val newrating = logs.select("UserID","ItemID","Rating","TimeStamp")
 
@@ -201,6 +213,9 @@ object DataProcessor {
 
     val ratings = ratingData.select("UserID", "ItemID", "rating")
     val recommendData = recommendation(spark,logsData,ratings)
-    recommendData.show()
+
+
+    loadData(recommendData.toDF(),sys.env("PostgreSQL_URI"),"recommend",sys.env("airflow"),sys.env("airflow"))
+    loadData(ratingData.toDF(),sys.env("PostgreSQL_URI"),"RatingData",sys.env("airflow"),sys.env("airflow"))
   }
 }

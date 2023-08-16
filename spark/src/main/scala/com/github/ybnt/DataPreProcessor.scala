@@ -6,7 +6,7 @@ import org.apache.spark.sql.types.{BooleanType, FloatType, IntegerType, LongType
 import org.apache.spark.sql.{Dataset, SparkSession}
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.Encoders
-import com.github.ybnt.DataProcessor.{recommendation,Logs,Users,Items,Ratings}
+import com.github.ybnt.DataProcessor.{Items, Logs, Ratings, Users, loadData, recommendation}
 
 object DataPreProcessor {
 
@@ -93,7 +93,11 @@ object DataPreProcessor {
     val ratings = ratingData.select("UserID", "ItemID", "rating")
 
     val recommendData = recommendation(spark,logsData,ratings)
-    recommendData.show()
+
+    loadData(recommendData.toDF(),sys.env("PostgreSQL_URI"),"recommend",sys.env("airflow"),sys.env("airflow"))
+    loadData(ratingData.toDF(),sys.env("PostgreSQL_URI"),"RatingData",sys.env("airflow"),sys.env("airflow"))
+    loadData(itemsData.toDF(),sys.env("PostgreSQL_URI"),"ItemData",sys.env("airflow"),sys.env("airflow"))
+    loadData(usersData.toDF(),sys.env("PostgreSQL_URI"),"UserData",sys.env("airflow"),sys.env("airflow"))
 
   }
 }

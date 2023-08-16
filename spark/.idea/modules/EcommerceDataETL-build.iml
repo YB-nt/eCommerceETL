@@ -20,7 +20,7 @@
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.18/lib/scala-compiler.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.18/lib/scala-library.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.18/lib/scala-reflect.jar!/" />
-          <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.18/lib/scala-xml_2.12.jar!/" />
+          <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.18/lib/scala-xml_2.12-2.1.0.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.18/org.scala-sbt/sbt/1.9.3/actions_2.12-1.9.3.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.18/org.scala-sbt/sbt/1.9.3/caffeine-2.8.5.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.18/org.scala-sbt/sbt/1.9.3/checker-qual-3.4.1.jar!/" />
