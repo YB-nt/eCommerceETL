@@ -1,5 +1,8 @@
 package com.github.ybnt
 
+import java.io.FileInputStream
+import java.util.Properties
+
 import org.apache.log4j._
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types.{BooleanType, FloatType, IntegerType, LongType, StringType, StructType}
@@ -10,7 +13,6 @@ import com.github.ybnt.DataProcessor.{Items, Logs, Ratings, Users, loadData, rec
 
 object DataPreProcessor {
 
-
   //make table
   case class recommend(UserID: Int, item1: Int, item2: Int, item3: Int, item4: Int)
 
@@ -20,6 +22,7 @@ object DataPreProcessor {
 
   def main(args: Array[String]) {
     Logger.getLogger("org").setLevel(Level.ERROR)
+
     val conf = new SparkConf()
       .setAppName("DataPreProcessor")
       .setMaster("local[*]") // 로컬 모드에서 실행
@@ -94,10 +97,10 @@ object DataPreProcessor {
 
     val recommendData = recommendation(spark,logsData,ratings)
 
-    loadData(recommendData.toDF(),sys.env("PostgreSQL_URI"),"recommend",sys.env("airflow"),sys.env("airflow"))
-    loadData(ratingData.toDF(),sys.env("PostgreSQL_URI"),"RatingData",sys.env("airflow"),sys.env("airflow"))
-    loadData(itemsData.toDF(),sys.env("PostgreSQL_URI"),"ItemData",sys.env("airflow"),sys.env("airflow"))
-    loadData(usersData.toDF(),sys.env("PostgreSQL_URI"),"UserData",sys.env("airflow"),sys.env("airflow"))
+    loadData(recommendData.toDF(),"recommendData")
+    loadData(ratingData.toDF(),"ratingData")
+    loadData(itemsData.toDF(),"itemsData")
+    loadData(usersData.toDF(),"usersData")
 
   }
 }

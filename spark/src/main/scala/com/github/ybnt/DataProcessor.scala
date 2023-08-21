@@ -3,12 +3,12 @@ package com.github.ybnt
 import org.apache.log4j._
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types.{BooleanType, FloatType, IntegerType, LongType, StringType, StructType}
-import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
+import org.apache.spark.sql.{DataFrame, Dataset, Encoders, SaveMode, SparkSession}
 import org.apache.spark.SparkConf
-import org.apache.spark.sql.Encoders
 
-
-
+import java.io.FileInputStream
+import java.util.Properties
+import java.sql.DriverManager
 
 
 object DataProcessor {
@@ -80,15 +80,24 @@ object DataProcessor {
   }
 
 
-  def loadData(df:DataFrame,dbUrl:String,tableName:String,userName:String,password: String): Unit ={
+  def loadData(df:DataFrame,tablename:String): Unit ={
+    val properties = new Properties()
+    val envPath = System.getProperty("user.dir") +"/.env"
+    val inputStream = new FileInputStream(envPath)
+    properties.load(inputStream)
+
+    properties.put("user", properties.getProperty("POSTGRES_USER"))
+    properties.put("password", properties.getProperty("POSTGRES_PASSWORD"))
+
+    val uri:String = properties.getProperty("PostgreSQL_URI")
+    Class.forName("org.postgresql.Driver")
+    val connection = DriverManager.getConnection(uri, properties.getProperty("POSTGRES_USER"), properties.getProperty("POSTGRES_PASSWORD"))
+
     df.write
-      .format("jdbc")
-      .option("url", dbUrl)
-      .option("dbtable", tableName)
-      .option("user", userName)
-      .option("password", password)
-      .mode("overwrite")
-      .save()
+      .mode(SaveMode.Overwrite)
+      .jdbc(uri,tablename,properties)
+
+    connection.close()
   }
 
   def addRating(logs: Dataset[Logs]): Dataset[Ratings] ={
@@ -215,7 +224,7 @@ object DataProcessor {
     val recommendData = recommendation(spark,logsData,ratings)
 
 
-    loadData(recommendData.toDF(),sys.env("PostgreSQL_URI"),"recommend",sys.env("airflow"),sys.env("airflow"))
-    loadData(ratingData.toDF(),sys.env("PostgreSQL_URI"),"RatingData",sys.env("airflow"),sys.env("airflow"))
+    loadData(recommendData.toDF(),"recommendData")
+    loadData(ratingData.toDF(),"ratingData")
   }
 }
