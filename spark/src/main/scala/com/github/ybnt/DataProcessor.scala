@@ -8,7 +8,7 @@ import org.apache.spark.SparkConf
 
 import java.io.FileInputStream
 import java.util.Properties
-import java.sql.DriverManager
+
 
 
 object DataProcessor {
@@ -81,23 +81,30 @@ object DataProcessor {
 
 
   def loadData(df:DataFrame,tablename:String): Unit ={
+    Class.forName("org.postgresql.Driver")
+
     val properties = new Properties()
     val envPath = System.getProperty("user.dir") +"/.env"
     val inputStream = new FileInputStream(envPath)
     properties.load(inputStream)
 
-    properties.put("user", properties.getProperty("POSTGRES_USER"))
-    properties.put("password", properties.getProperty("POSTGRES_PASSWORD"))
+//    properties.put("user", properties.getProperty("POSTGRES_USER"))
+//    properties.put("password", properties.getProperty("POSTGRES_PASSWORD"))
 
+    val username:String = properties.getProperty("POSTGRES_USER")
+    val password:String = properties.getProperty("POSTGRES_PASSWORD")
     val uri:String = properties.getProperty("PostgreSQL_URI")
-    Class.forName("org.postgresql.Driver")
-    val connection = DriverManager.getConnection(uri, properties.getProperty("POSTGRES_USER"), properties.getProperty("POSTGRES_PASSWORD"))
+
 
     df.write
+      .format("jdbc")
+      .option("url", s"jdbc:postgresql://127.0.0.1:5432/ecommerce_db")
+      .option("user", s"airflow")
+      .option("password", s"airflow")
+      .option("dbtable", s"$tablename")
+      .option("driver", "org.postgresql.Driver")
       .mode(SaveMode.Overwrite)
-      .jdbc(uri,tablename,properties)
-
-    connection.close()
+      .save()
   }
 
   def addRating(logs: Dataset[Logs]): Dataset[Ratings] ={
