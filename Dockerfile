@@ -16,11 +16,26 @@ ARG SPARK_VERSION="3.0.1"
 ARG HADOOP_VERSION="2.7"
 ENV AIRFLOW_GPL_UNIDECODE yes
 
+# python install requirements
+
+# COPY ./dag/requirements.txt /requirements.txt
+# RUN pip install -r requirements.txt
+
+# COPY ./dags/requirements.txt /opt/airflow/requirements.txt
+RUN python -m pip install --upgrade pip &&\
+    pip install -r /dags/requirements.txt
+
 # SPAEK
 
 COPY ./env ./spark/.env
 
-FROM openjdk:8-jre
+USER root
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jdk && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+USER airflow
 
 # Scala와 SBT 설치
 # intlij환경과 동일하게 설정

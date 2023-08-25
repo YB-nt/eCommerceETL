@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/EcommerceDataETL.iml" filepath="$PROJECT_DIR$/.idea/modules/EcommerceDataETL.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/EcommerceDataETL-build.iml" filepath="$PROJECT_DIR$/.idea/modules/EcommerceDataETL-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PredataETL.iml" filepath="$PROJECT_DIR$/.idea/modules/PredataETL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PredataETL-build.iml" filepath="$PROJECT_DIR$/.idea/modules/PredataETL-build.iml" />
     </modules>
   </component>
 </project>
