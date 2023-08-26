@@ -1,9 +1,8 @@
 version: '3.8'
 x-airflow-common:
   &airflow-common
+  build: ./airflow-docker
   
-  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.6.3}
-  build: .dockerfile
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
@@ -100,7 +99,7 @@ services:
           echo
           echo -e "\033[1;31mERROR!!!: Too old Airflow version $${airflow_version}!\e[0m"
           echo "The minimum Airflow version supported: $${min_airflow_version}. Only use this or higher!"
-          echo
+          echo 
           exit 1
         fi
         if [[ -z "${AIRFLOW_UID}" ]]; then
@@ -212,8 +211,6 @@ services:
       
   metabase:
     volumes:
-    # setup your SQLITE db (optional)
-      - /PATH/TO/SQLITE/:/metabase
       - ./metabase-data:/metabase-data
     environment:
       - MB_DB_TYPE=postgres
