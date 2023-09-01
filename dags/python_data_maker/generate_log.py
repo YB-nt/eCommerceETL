@@ -50,7 +50,7 @@ class Loggenerator:
         return [self.user_genre(), self.action_genre(), self.access_path(), self.timestamp(),self.get_preference(),self.target_item()]
     
     def write_csv(self):
-        with open(f'../spark/data/log.csv', 'w', newline='') as csvfile:
+        with open(f'../../spark/data/log.csv', 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['ID', 'Action', 'Access_path', 'timestamp','preference','ItemID'])
             for _ in range(self.DATA_SIZE):

@@ -27,7 +27,7 @@ class Itemgenerator:
         return [self.item_name(), self.item_price(), self.item_category()]
     
     def write_csv(self):
-        with open(f'../spark/data/itemsdata.csv', 'w', newline='') as csvfile:
+        with open(f'../../spark/data/itemsdata.csv', 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['ID', 'Name', 'Price', 'Category'])
             for i in range(self.DATA_SIZE):

@@ -72,13 +72,13 @@ with DAG(
     predata_processing = SparkSubmitOperator(
         task_id ="predata_processing",
         conn_id="spark_option_pre",
-        application="./spark/PredataProcessing-assembly-0.1.jar",
+        application="../spark/PredataProcessing-assembly-0.1.jar",
         dag=dag
     )
     data_processing = SparkSubmitOperator(
         task_id ="data_processing",
         conn_id="spark_option",
-        application="./spark/DataProcessing-assembly-0.1.jar",
+        application="../spark/DataProcessing-assembly-0.1.jar",
         dag=dag
     )
 
