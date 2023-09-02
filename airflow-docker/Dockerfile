@@ -24,10 +24,6 @@ ENV LC_CTYPE en_US.UTF-8
 ENV LC_MESSAGES en_US.UTF-8
 
 COPY requirements.txt requirements.txt
-# RUN pip install --upgrade pip --no-cache-dir && \
-#     pip install -r /requirements.txt --no-cache-dir && \
-#     pip install airflow-docker-compose --no-cache-dir
-
 
 USER root
 RUN set -ex \
@@ -98,79 +94,10 @@ USER airflow
 RUN python --version \
 && pip freeze
 
-
-
-
-# RUN set -ex \ 
-#     && buildDeps=' \
-#         freetds-dev \
-#         libkrb5-dev \
-#         libsasl2-dev \
-#         libssl-dev \
-#         libffi-dev \
-#         libpq-dev \
-#         git'\
-#     && apt-get update -yqq \
-#     && apt-mark hold msodbcsql18 \  
-#     && apt-get upgrade -yqq \
-#     && apt-get install -yqq --no-install-recommends \
-#         $buildDeps \
-#         freetds-bin \
-#         build-essential \
-#         default-libmysqlclient-dev \
-#         apt-utils \
-#         curl \
-#         rsync \
-#         netcat \
-#         locales \
-#         iputils-ping \
-#         telnet \
-#     && sed -i 's/^# en_US.UTF-8 UTF-8$/en_US.UTF-8 UTF-8/g' /etc/locale.gen \
-#     && locale-gen \
-#     && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 
-
-
-    
-    
-# USER airflow
-
-# RUN pip install -U pip setuptools wheel \
-#     && pip install pytz \
-#     && pip install pyOpenSSL \
-#     && pip install ndg-httpsclient \
-#     && pip install pyasn1 \
-#     && pip install -r requirements.txt \
-#     && pip install apache-airflow==${AIRFLOW_VERSION} \
-#     && if [ -n "${PYTHON_DEPS}" ]; then pip install ${PYTHON_DEPS}; fi \
-#     && apt-get purge --auto-remove -yqq $buildDeps \
-#     && apt-get autoremove -yqq --purge \
-#     && apt-get clean \
-#     && rm -rf \
-#         /var/lib/apt/lists/* \
-#         /tmp/* \
-#         /var/tmp/* \
-#         /usr/share/man \
-#         /usr/share/doc \
-#         /usr/share/doc-base \
-#     && python --version \
-#     && pip freeze
-
 # SPAEK
 # install jdk
-
 USER root
 
-# RUN apt-get update && \
-#     apt-get install -y software-properties-common && \
-#     apt-get install -y gnupg2 && \
-#     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EB9B1D8886F44E2A && \
-#     add-apt-repository "deb http://security.debian.org/debian-security buster/updates main" && \ 
-#     apt-get update && \
-#     apt-get install -y openjdk-11-jdk && \
-#     apt-get install -y python3-dbus python3-distro-info python3-gi python3-pycurl python3-software-properties software-properties-common unattended-upgrades && \
-#     apt-get install -y policykit-1 libnss-systemd && \
-#     java -version $$ \
-#     javac -version
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
     apt-get install -y gnupg2 && \
@@ -190,6 +117,16 @@ RUN apt-get update && \
 ENV SCALA_HOME /usr/share/scala/
 ENV SPARK_HOME /usr/local/spark/
 ENV PATH $PATH:$JAVA_HOME/bin:$SCALA_HOME/bin:$SPARK_HOME/bin
+
+
+RUN apt-get update && \ 
+    apt-get install -y zip unzip
+
+COPY ../spark/jarzip/ ${SPARK_HOME}/jarzip/
+
+RUN mkdir  ${SPARK_HOME}/jarfile
+RUN unzip -s 0 jarzip.zip --out unzip_jar.zip  && unzip unzip_jar.zip -d ${SPARK_HOME}/jarfile
+RUN rm -f  ${SPARK_HOME}/jarzip/
 
 # Scala와 SBT 설치
 # intlij환경과 동일하게 설정
@@ -223,19 +160,13 @@ RUN wget https://archive.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK
     rm spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION.tgz
 
 
-
-
-# COPY entrypoint.sh /entrypoint.sh
 COPY airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 COPY webserver_config.py ${AIRFLOW_HOME}/webserver_config.py
 
-
-# RUN chown -R airflow: ${AIRFLOW_HOME}
-# RUN chmod +x entrypoint.sh
 
 EXPOSE 8080 5432 7077
 
 USER airflow
 WORKDIR ${AIRFLOW_HOME}
-# ENTRYPOINT ["/entrypoint.sh"]
+
 CMD ["webserver"]
