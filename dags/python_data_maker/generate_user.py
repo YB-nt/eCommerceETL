@@ -1,8 +1,8 @@
 from faker import Faker
 import random
 import csv
-from datetime import datetime
-import time
+
+
 
 class Usergenerator:
     def __init__(self):
@@ -15,7 +15,7 @@ class Usergenerator:
         return self.fake.simple_profile(sex=gender)
         
     def write_csv(self):
-        with open(f'../../spark/data/usersdata.csv', 'w', newline='') as csvfile:
+        with open(f'/usr/local/data/usersdata.csv', 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([ 'ID','username', 'name', 'sex', 'address', 'mail', 'birthdate'])
             for i in range(self.DATA_SIZE):

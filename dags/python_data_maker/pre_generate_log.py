@@ -1,9 +1,8 @@
 from faker import Faker
-from faker.providers import BaseProvider,date_time
 import random
 import csv
 from datetime import datetime
-import time
+
 
 
 class Loggenerator:
@@ -20,9 +19,6 @@ class Loggenerator:
         return random.choice(['facebook', 'direct', 'instagram', 'google', 'naver', 'etc'])
     
     def user_genre(self):
-        # temp_id = self.fake.unique.random_number(digits=6)
-        # format_Id = str(temp_id).zfill(6)
-        # return format_Id
         return random.randrange(100001,100501)
     
     def timestamp(self):
@@ -42,15 +38,15 @@ class Loggenerator:
     def target_item(self):
         return random.randrange(100001,100501)
 
-    def generate_customer(self):
+    def generate_prelog(self):
         return [self.user_genre(), self.action_genre(), self.access_path(), self.timestamp(),self.get_preference(),self.target_item()]
     
     def write_csv(self):
-        with open(f'../../spark/data/log/log.csv', 'w', newline='') as csvfile:
+        with open(f'/usr/local/data/log/log.csv', 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['ID', 'Action', 'Access_path', 'timestamp','preference','ItemID'])
             for _ in range(self.DATA_SIZE):
-                writer.writerow(self.generate_customer())
+                writer.writerow(self.generate_prelog())
 
 
 gen = Loggenerator()

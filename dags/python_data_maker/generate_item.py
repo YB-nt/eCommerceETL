@@ -1,10 +1,9 @@
 from faker import Faker
-from faker.providers import BaseProvider
 import random
 import faker_commerce
 import csv
-from datetime import datetime
-import time
+
+
 
 class Itemgenerator:
     def __init__(self):
@@ -12,7 +11,6 @@ class Itemgenerator:
         self.fake.add_provider(faker_commerce.Provider)
         self.DATA_SIZE =500
         self.fake.seed_instance(random.randint(1,9999))
-    
 
     def item_name(self) -> str:
         return self.fake.ecommerce_name()
@@ -27,7 +25,7 @@ class Itemgenerator:
         return [self.item_name(), self.item_price(), self.item_category()]
     
     def write_csv(self):
-        with open(f'../../spark/data/itemsdata.csv', 'w', newline='') as csvfile:
+        with open(f'/usr/local/data/itemsdata.csv', 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['ID', 'Name', 'Price', 'Category'])
             for i in range(self.DATA_SIZE):

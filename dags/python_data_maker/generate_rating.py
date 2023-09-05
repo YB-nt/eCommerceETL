@@ -1,8 +1,6 @@
 from faker import Faker
 import random
-import csv
 from datetime import datetime
-import time
 
 class RatingGenerator:
     def __init__(self):
@@ -40,7 +38,7 @@ class RatingGenerator:
         return [self.make_user(), self.make_item(),self.make_rating(), self.make_timestamp()]
     
     def write_dat(self):
-        with open(f'../../spark/data/rating.dat', 'wb+') as f:
+        with open(f'/usr/local/data/rating.dat', 'wb+') as f:
             for _ in range(self.DATA_SIZE):
                 row_bytes = bytes('\t'.join(map(str, self.generate_customer())), encoding='utf-8') + b'\n'
                 f.write(row_bytes)

@@ -114,23 +114,24 @@ RUN apt-get update && \
 # USER airflow
 
 
-ENV SCALA_HOME /usr/share/scala/
-ENV SPARK_HOME /usr/local/spark/
+ENV SCALA_HOME /usr/share/scala
+ENV SPARK_HOME /usr/local/spark
+ENV DATA_HOME /usr/local/data
 ENV PATH $PATH:$JAVA_HOME/bin:$SCALA_HOME/bin:$SPARK_HOME/bin
 
 
+#spakr jar file setting
 RUN apt-get update && \ 
     apt-get install -y zip unzip
 
-COPY ../spark/jarzip/ ${SPARK_HOME}/jarzip/
+COPY ./spark/jarzip/ ${SPARK_HOME}/jarzip/
 
-RUN mkdir  ${SPARK_HOME}/jarfile
-RUN unzip -s 0 jarzip.zip --out unzip_jar.zip  && unzip unzip_jar.zip -d ${SPARK_HOME}/jarfile
-RUN rm -f  ${SPARK_HOME}/jarzip/
+RUN zip -s 0 ${SPARK_HOME}/jarzip/jarzip.zip --out unzip_jar.zip && unzip -j unzip_jar.zip -d /usr/local
+RUN rm -r  ${SPARK_HOME}/jarzip/
 
 # Scala와 SBT 설치
 # intlij환경과 동일하게 설정
-ENV SCALA_VERSION 2.12.18
+ENV SCALA_VERSION 2.13.2
 ENV SBT_VERSION 1.9.2
 
 
@@ -150,19 +151,27 @@ RUN apt-get update && \
     rm sbt.deb
 
 
-
-ENV SPARK_VERSION 3.1.2
+ENV SPARK_VERSION 3.2.4
 ENV HADOOP_VERSION 3.2
 
-RUN wget https://archive.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION.tgz && \
-    tar -xvzf spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION.tgz && \
-    mv spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION $SPARK_HOME && \
-    rm spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION.tgz
+
+RUN cd "/tmp" && \
+        wget --no-verbose "https://dlcdn.apache.org/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION.tgz" && \
+        tar -xvzf "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" && \
+        mkdir -p "${SPARK_HOME}/assembly/target/scala-2.12/jars" && \
+        cp -a "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}/bin/." "${SPARK_HOME}/bin/" && \
+        cp -a "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}/jars/." "${SPARK_HOME}/assembly/target/scala-2.12/jars/" && \
+        rm "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz"
 
 
 COPY airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 COPY webserver_config.py ${AIRFLOW_HOME}/webserver_config.py
 
+USER root
+WORKDIR /usr/local
+# RUN mkdir $(DATA_HOME)
+RUN mkdir -p data/log
+RUN chmod -R 777 ${DATA_HOME}
 
 EXPOSE 8080 5432 7077
 

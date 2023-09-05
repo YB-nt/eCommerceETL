@@ -6,7 +6,7 @@ x-airflow-common:
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
   # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.6.3}
   build: 
-    context: ./airflow-docker
+    context: ./docker
     dockerfile: Dockerfile
   environment:
     &airflow-common-env
@@ -41,7 +41,7 @@ x-airflow-common:
 services:
   postgres:
     build:
-      context: ./postgres
+      context: ./docker/postgres
       dockerfile: Dockerfile
     environment:
       POSTGRES_USER: airflow
