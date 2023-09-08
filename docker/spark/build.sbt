@@ -1,4 +1,4 @@
-name := "PredataProcessing"
+name := "DataProcessing"
 
 version := "0.1"
 
