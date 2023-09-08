@@ -2,13 +2,18 @@ from faker import Faker
 import random
 import csv
 from datetime import datetime
-
+import logging
 
 
 class Loggenerator:
     def __init__(self):
         self.fake = Faker()
         self.DATA_SIZE =200
+
+        logging.basicConfig(level=logging.INFO,
+                            format='%(asctime)s [%(levelname)s] %(message)s',
+                            handlers=[logging.StreamHandler(),
+                                      logging.FileHandler('/usr/local/data/log/app.log')])
 
     def action_genre(self):
         actions = ['View', 'ItemSearch', 'Buy', 'AddtoCart']
@@ -42,12 +47,16 @@ class Loggenerator:
         return [self.user_genre(), self.action_genre(), self.access_path(), self.timestamp(),self.get_preference(),self.target_item()]
     
     def write_csv(self):
-        with open(f'/usr/local/data/log/log.csv', 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(['ID', 'Action', 'Access_path', 'timestamp','preference','ItemID'])
-            for _ in range(self.DATA_SIZE):
-                writer.writerow(self.generate_prelog())
-
+        try:
+            with open(f'/usr/local/data/log/log.csv', 'w', newline='') as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(['ID', 'Action', 'Access_path', 'timestamp','preference','ItemID'])
+                for _ in range(self.DATA_SIZE):
+                    writer.writerow(self.generate_prelog())
+            logging.info("Successfully wrote to /usr/local/data/log/log.csv")
+        
+        except Exception as e:
+            logging.error("Failed to write to /usr/local/data/log/log.csv", exc_info=True)
 
 gen = Loggenerator()
 gen.write_csv()

@@ -4,24 +4,34 @@ from airflow.operators.dummy_operator import DummyOperator
 import datetime as dt
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
-from airflow.providers.postgres.operators.postgres  import PostgresOperator
 import psycopg2
-
-def predata_make():
-    from python_data_maker import pre_generate_log,generate_item,generate_user
-
-    pre_generate_log.Loggenerator().write_csv()
-    # generate_item.Itemgenerator().write_csv()
-    # generate_user.Usergenerator().write_csv()
-    # generate_rating.RatingGenerator().write_dat()
+from airflow.utils.task_group import TaskGroup
 
 
-def data_make():
-    from python_data_maker import generate_log,generate_rating
+def check_table_count():
+        conn = psycopg2.connect(
+            host='postgres',
+            port=5432,
+            dbname='ecommerce_db',
+            user='airflow',
+            password='airflow'
+        )
 
-    generate_log.Loggenerator().write_csv()
-    # generate_rating.RatingGenerator().write_dat()
+        cursor = conn.cursor()
+        cursor.execute("""
+                        SELECT EXISTS (
+                                        SELECT FROM pg_catalog.pg_tables 
+                                        WHERE schemaname = 'public' 
+                                        AND tablename = 'userdata'
+                                    );
+                       """)
+        
+        check = cursor.fetchone()[0]
 
+        if check:
+            return 'data_maker.make_group_task_start'
+        else:
+            return 'predata_maker.pre_make_group_task_start'
 
 
 default_args = {
@@ -44,53 +54,49 @@ with DAG(
 
 
 
-    make_group_task_start = DummyOperator(task_id='make_group_task_start', dag=dag)
-    make_group_task_end_1 = DummyOperator(task_id='make_group_task_end_1', dag=dag)
-    make_group_task_end_2 = DummyOperator(task_id='make_group_task_end_2', dag=dag)
-
-
-    data_make = PythonOperator(
-        task_id='data_make',
-        python_callable=data_make,
-        dag=dag
-    )
-
-    predata_make = PythonOperator(
-        task_id='predata_make',
-        python_callable=predata_make,
-        dag=dag
-    )
-
-    
-    def check_table_count():
-    # PostgreSQL 연결 설정
-        conn = psycopg2.connect(
-            host='postgres',
-            port=5432,
-            dbname='ecommerce_db',
-            user='airflow',
-            password='airflow'
-        )
-
-        # 쿼리 실행
-        cursor = conn.cursor()
-        cursor.execute("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'public';")
-        
-        # 결과 가져오기
-        count = cursor.fetchone()[0]
-
-        # 테이블 갯수에 따라 분기 결정
-        if count > 0:
-            return 'data_make'
-        else:
-            return 'predata_make'
+    start_task = DummyOperator(task_id='start_task', dag=dag)
 
     branching = BranchPythonOperator(
         task_id='branching',
         python_callable=check_table_count,
         dag=dag
     )
+    
+    with TaskGroup('predata_maker') as predata_maker:
+        pre_make_group_task_start = DummyOperator(task_id='pre_make_group_task_start', dag=dag)
+        bash_task_pre_1 = BashOperator(
+            task_id='bash_task_1',
+            bash_command='python /opt/airflow/dags/python_data_maker/generate_item.py'
+        )
+        bash_task_pre_2 = BashOperator(
+            task_id='bash_task_2',
+            bash_command='python /opt/airflow/dags/python_data_maker/generate_user.py'
+        )
+        bash_task_pre_3 = BashOperator(
+            task_id='bash_task_3',
+            bash_command='python /opt/airflow/dags/python_data_maker/pre_generate_log.py'
+        )
+        bash_task_pre_4 = BashOperator(
+            task_id='bash_task_4',
+            bash_command='python /opt/airflow/dags/python_data_maker/generate_rating.py'
+        )
+        pre_make_group_task_end = DummyOperator(task_id='make_group_task_end_1')
+        pre_make_group_task_start >> [bash_task_pre_1,bash_task_pre_2,bash_task_pre_3,bash_task_pre_4] >> pre_make_group_task_end
 
+
+    with TaskGroup('data_maker') as data_maker:
+        make_group_task_start = DummyOperator(task_id='make_group_task_start', dag=dag)
+        bash_task_1 = BashOperator(
+            task_id='bash_task_1',
+            bash_command='python /opt/airflow/dags/python_data_maker/generate_rating.py'
+        )
+        bash_task_2 = BashOperator(
+            task_id='bash_task_2',
+            bash_command='python /opt/airflow/dags/python_data_maker/generate_log.py'
+        )
+        make_group_task_end = DummyOperator(task_id='make_group_task_end_2', dag=dag)
+        make_group_task_start >> [bash_task_1,bash_task_2] >> make_group_task_end
+        
     predata_processing = BashOperator(
         task_id="predata_processing",
         bash_command="cd /usr/local && spark-submit --master spark://spark-master:7077 ./PredataProcessing-assembly-0.1.jar",
@@ -103,8 +109,10 @@ with DAG(
         dag=dag
     )
 
+    end_task_1 = DummyOperator(task_id='end_task_1', dag=dag)
+    end_task_2 = DummyOperator(task_id='end_task_2', dag=dag)
 
-make_group_task_start >> branching >> [data_make, predata_make]
+start_task >> branching  >> [data_maker,predata_maker]
 
-data_make >> make_group_task_end_1 >> data_processing
-predata_make >> make_group_task_end_2 >> predata_processing
+make_group_task_end  >> data_processing >> end_task_1
+pre_make_group_task_end >> predata_processing >> end_task_2

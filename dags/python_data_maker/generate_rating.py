@@ -1,6 +1,7 @@
 from faker import Faker
 import random
 from datetime import datetime
+import os
 
 class RatingGenerator:
     def __init__(self):
@@ -42,6 +43,6 @@ class RatingGenerator:
             for _ in range(self.DATA_SIZE):
                 row_bytes = bytes('\t'.join(map(str, self.generate_customer())), encoding='utf-8') + b'\n'
                 f.write(row_bytes)
-
+        
 item = RatingGenerator()
 item.write_dat()

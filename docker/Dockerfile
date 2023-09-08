@@ -120,14 +120,7 @@ ENV DATA_HOME /usr/local/data
 ENV PATH $PATH:$JAVA_HOME/bin:$SCALA_HOME/bin:$SPARK_HOME/bin
 
 
-#spakr jar file setting
-RUN apt-get update && \ 
-    apt-get install -y zip unzip
 
-COPY ./spark/jarzip/ ${SPARK_HOME}/jarzip/
-
-RUN zip -s 0 ${SPARK_HOME}/jarzip/jarzip.zip --out unzip_jar.zip && unzip -j unzip_jar.zip -d /usr/local
-RUN rm -r  ${SPARK_HOME}/jarzip/
 
 # Scala와 SBT 설치
 # intlij환경과 동일하게 설정
@@ -166,13 +159,28 @@ RUN cd "/tmp" && \
 
 COPY airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 COPY webserver_config.py ${AIRFLOW_HOME}/webserver_config.py
+COPY ./.env /usr/local/.env
+
 
 USER root
+
+#spark jar file setting
+# for git upload 
+RUN apt-get update && \ 
+    apt-get install -y zip unzip
+
+COPY ./spark/jarzip/ ${SPARK_HOME}/jarzip/
+
+RUN zip -s 0 ${SPARK_HOME}/jarzip/jarzip.zip --out unzip_jar.zip && unzip -j unzip_jar.zip -d /usr/local
+RUN rm -r  ${SPARK_HOME}/jarzip/
+
+# COPY ./spark/target/scala-2.12/*.jar /usr/local/
+
+
 WORKDIR /usr/local
 # RUN mkdir $(DATA_HOME)
 RUN mkdir -p data/log
-RUN chmod -R 777 ${DATA_HOME}
-
+RUN chmod -R 773 ${DATA_HOME}
 EXPOSE 8080 5432 7077
 
 USER airflow
