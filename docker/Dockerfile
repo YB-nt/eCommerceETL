@@ -169,10 +169,10 @@ USER root
 RUN apt-get update && \ 
     apt-get install -y zip unzip
 
-COPY ./spark/jarzip/ ${SPARK_HOME}/jarzip/
+COPY ./spark/jartemp/ ${SPARK_HOME}/jartemp/
 
-RUN zip -s 0 ${SPARK_HOME}/jarzip/jarzip.zip --out unzip_jar.zip && unzip -j unzip_jar.zip -d /usr/local
-RUN rm -r  ${SPARK_HOME}/jarzip/
+RUN zip -s 0 ${SPARK_HOME}/jartemp/jarzip.zip --out unzip_jar.zip && unzip -j unzip_jar.zip -d /usr/local
+RUN rm -r  ${SPARK_HOME}/jartemp/
 
 # COPY ./spark/target/scala-2.12/*.jar /usr/local/
 

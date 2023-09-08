@@ -42,8 +42,6 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-
-
 with DAG(
     dag_id="eCommerce_ETL_dag",
     default_args=default_args,
@@ -51,8 +49,6 @@ with DAG(
     schedule_interval="@daily",
     catchup=False,
 ) as dag:
-
-
 
     start_task = DummyOperator(task_id='start_task', dag=dag)
 
