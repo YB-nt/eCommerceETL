@@ -30,7 +30,6 @@ class Itemgenerator:
             writer.writerow(['ID', 'Name', 'Price', 'Category'])
             for i in range(self.DATA_SIZE):
                 item = self.generate_items() 
-                
                 item.insert(0,str(i+100001).zfill(6))
                 writer.writerow(item)
 

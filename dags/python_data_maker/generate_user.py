@@ -24,7 +24,5 @@ class Usergenerator:
                 temp_dict['ID'] = i+100001
                 temp_dict.update(self.make_profile())
                 writer.writerow(temp_dict.values())
-        print(os.system('ls -l /usr/local/data'))
-
 item = Usergenerator()
 item.write_csv()

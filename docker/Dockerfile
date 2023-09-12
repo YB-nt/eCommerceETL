@@ -64,7 +64,7 @@ RUN pip install -U pip setuptools wheel \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
     && pip install -r requirements.txt \
-    && pip install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,ssh${AIRFLOW_DEPS:+,}${AIRFLOW_DEPS}]==${AIRFLOW_VERSION} \
+    && pip install apache-airflow[crypto,amazon,postgres,jdbc,ssh${AIRFLOW_DEPS:+,}${AIRFLOW_DEPS}]==${AIRFLOW_VERSION} \
     && if [ -n "${PYTHON_DEPS}" ]; then pip install ${PYTHON_DEPS}; fi 
 
 USER root
@@ -157,7 +157,7 @@ RUN cd "/tmp" && \
         rm "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz"
 
 
-COPY airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
+# COPY airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 COPY webserver_config.py ${AIRFLOW_HOME}/webserver_config.py
 COPY ./.env /usr/local/.env
 
@@ -171,7 +171,7 @@ RUN apt-get update && \
 
 COPY ./spark/jartemp/ ${SPARK_HOME}/jartemp/
 
-RUN zip -s 0 ${SPARK_HOME}/jartemp/jarzip.zip --out unzip_jar.zip && unzip -j unzip_jar.zip -d /usr/local
+RUN zip -s 0 ${SPARK_HOME}/jartemp/jartemp.zip --out unzip_jar.zip && unzip -j unzip_jar.zip -d /usr/local
 RUN rm -r  ${SPARK_HOME}/jartemp/
 
 # COPY ./spark/target/scala-2.12/*.jar /usr/local/
