@@ -8,7 +8,7 @@ import logging
 class Loggenerator:
     def __init__(self):
         self.fake = Faker()
-        self.DATA_SIZE =200
+        self.DATA_SIZE =500
 
         logging.basicConfig(level=logging.INFO,
                             format='%(asctime)s [%(levelname)s] %(message)s',

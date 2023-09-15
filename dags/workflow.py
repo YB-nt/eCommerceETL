@@ -9,29 +9,30 @@ from airflow.utils.task_group import TaskGroup
 
 
 def check_table_count():
-        conn = psycopg2.connect(
-            host='postgres',
-            port=5432,
-            dbname='ecommerce_db',
-            user='airflow',
-            password='airflow'
-        )
+    conn = psycopg2.connect(
+        host='postgres',
+        port=5432,
+        dbname='ecommerce_db',
+        user='airflow',
+        password='airflow'
+    )
 
-        cursor = conn.cursor()
-        cursor.execute("""
-                        SELECT EXISTS (
-                                        SELECT FROM pg_catalog.pg_tables 
-                                        WHERE schemaname = 'public' 
-                                        AND tablename = 'userdata'
-                                    );
-                       """)
-        
-        check = cursor.fetchone()[0]
+    cursor = conn.cursor()
+    cursor.execute("""
+                    SELECT EXISTS (
+                                    SELECT 1 
+                                    FROM information_schema.tables 
+                                    WHERE table_schema = 'public' 
+                                    AND table_name = 'usersData'
+                                );
+                   """)
 
-        if check:
-            return 'data_maker.make_group_task_start'
-        else:
-            return 'predata_maker.pre_make_group_task_start'
+    check = cursor.fetchone()[0]
+
+    if check:
+        return 'data_maker.make_group_task_start'
+    else:
+        return 'predata_maker.pre_make_group_task_start'
 
 
 default_args = {
@@ -95,7 +96,7 @@ with DAG(
         
     predata_processing = BashOperator(
         task_id="predata_processing",
-        bash_command="cd /usr/local && spark-submit --master spark://spark-master:7077 ./PredataProcessing-assembly-0.1.jar",
+        bash_command="cd /usr/local && spark-submit --master spark://spark-master:7077 ./PreDataProcessing-assembly-0.1.jar",
         dag=dag
     )
 
