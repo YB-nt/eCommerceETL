@@ -1,0 +1,16 @@
+[2023-09-15T16:16:30.351+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: eCommerce_ETL_dag.predata_maker.bash_task_1 manual__2023-09-15T16:16:14.686512+00:00 [queued]>
+[2023-09-15T16:16:30.437+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: eCommerce_ETL_dag.predata_maker.bash_task_1 manual__2023-09-15T16:16:14.686512+00:00 [queued]>
+[2023-09-15T16:16:30.477+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2023-09-15T16:16:30.673+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): predata_maker.bash_task_1> on 2023-09-15 16:16:14.686512+00:00
+[2023-09-15T16:16:30.693+0000] {standard_task_runner.py:57} INFO - Started process 1622 to run task
+[2023-09-15T16:16:30.763+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'eCommerce_ETL_dag', 'predata_maker.bash_task_1', 'manual__2023-09-15T16:16:14.686512+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/workflow.py', '--cfg-path', '/tmp/tmpftsb5nt9']
+[2023-09-15T16:16:30.821+0000] {standard_task_runner.py:85} INFO - Job 30: Subtask predata_maker.bash_task_1
+[2023-09-15T16:16:31.212+0000] {task_command.py:410} INFO - Running <TaskInstance: eCommerce_ETL_dag.predata_maker.bash_task_1 manual__2023-09-15T16:16:14.686512+00:00 [running]> on host 228226a2581e
+[2023-09-15T16:16:31.485+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='eCommerce_ETL_dag' AIRFLOW_CTX_TASK_ID='predata_maker.bash_task_1' AIRFLOW_CTX_EXECUTION_DATE='2023-09-15T16:16:14.686512+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-09-15T16:16:14.686512+00:00'
+[2023-09-15T16:16:31.489+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-09-15T16:16:31.495+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python /opt/***/dags/python_data_maker/generate_item.py']
+[2023-09-15T16:16:31.553+0000] {subprocess.py:86} INFO - Output:
+[2023-09-15T16:16:32.804+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-09-15T16:16:32.880+0000] {taskinstance.py:1345} INFO - Marking task as SUCCESS. dag_id=eCommerce_ETL_dag, task_id=predata_maker.bash_task_1, execution_date=20230915T161614, start_date=20230915T161630, end_date=20230915T161632
+[2023-09-15T16:16:33.033+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-09-15T16:16:33.066+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

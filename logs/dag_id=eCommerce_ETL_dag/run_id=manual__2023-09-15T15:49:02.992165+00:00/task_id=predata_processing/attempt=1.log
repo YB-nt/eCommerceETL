@@ -1,0 +1,24 @@
+[2023-09-15T15:51:38.149+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: eCommerce_ETL_dag.predata_processing manual__2023-09-15T15:49:02.992165+00:00 [queued]>
+[2023-09-15T15:51:38.166+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: eCommerce_ETL_dag.predata_processing manual__2023-09-15T15:49:02.992165+00:00 [queued]>
+[2023-09-15T15:51:38.168+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2023-09-15T15:51:38.193+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): predata_processing> on 2023-09-15 15:49:02.992165+00:00
+[2023-09-15T15:51:38.202+0000] {standard_task_runner.py:57} INFO - Started process 1068 to run task
+[2023-09-15T15:51:38.211+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'eCommerce_ETL_dag', 'predata_processing', 'manual__2023-09-15T15:49:02.992165+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/workflow.py', '--cfg-path', '/tmp/tmp4_a47v_3']
+[2023-09-15T15:51:38.222+0000] {standard_task_runner.py:85} INFO - Job 23: Subtask predata_processing
+[2023-09-15T15:51:38.332+0000] {task_command.py:410} INFO - Running <TaskInstance: eCommerce_ETL_dag.predata_processing manual__2023-09-15T15:49:02.992165+00:00 [running]> on host 228226a2581e
+[2023-09-15T15:51:38.474+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='eCommerce_ETL_dag' AIRFLOW_CTX_TASK_ID='predata_processing' AIRFLOW_CTX_EXECUTION_DATE='2023-09-15T15:49:02.992165+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-09-15T15:49:02.992165+00:00'
+[2023-09-15T15:51:38.480+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-09-15T15:51:38.483+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /usr/local && spark-submit --master spark://spark-master:7077 ./PreDataProcessing-assembly-0.1.jar']
+[2023-09-15T15:51:38.501+0000] {subprocess.py:86} INFO - Output:
+[2023-09-15T15:51:38.562+0000] {subprocess.py:93} INFO - /usr/local/spark/bin/load-spark-env.sh: line 68: ps: command not found
+[2023-09-15T15:51:42.787+0000] {subprocess.py:93} INFO - WARNING: An illegal reflective access operation has occurred
+[2023-09-15T15:51:42.794+0000] {subprocess.py:93} INFO - WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/usr/local/spark/assembly/target/scala-2.12/jars/spark-unsafe_2.12-3.2.4.jar) to constructor java.nio.DirectByteBuffer(long,int)
+[2023-09-15T15:51:42.796+0000] {subprocess.py:93} INFO - WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+[2023-09-15T15:51:42.798+0000] {subprocess.py:93} INFO - WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+[2023-09-15T15:51:42.800+0000] {subprocess.py:93} INFO - WARNING: All illegal access operations will be denied in a future release
+[2023-09-15T15:51:44.032+0000] {subprocess.py:93} INFO - 23/09/15 15:51:44 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2023-09-15T15:51:45.060+0000] {subprocess.py:93} INFO - Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+[2023-09-15T15:55:36.560+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-09-15T15:55:36.643+0000] {taskinstance.py:1345} INFO - Marking task as SUCCESS. dag_id=eCommerce_ETL_dag, task_id=predata_processing, execution_date=20230915T154902, start_date=20230915T155138, end_date=20230915T155536
+[2023-09-15T15:55:36.741+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-09-15T15:55:36.774+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

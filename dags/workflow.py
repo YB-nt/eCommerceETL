@@ -19,16 +19,17 @@ def check_table_count():
 
     cursor = conn.cursor()
     cursor.execute("""
-                    SELECT EXISTS (
-                                    SELECT 1 
-                                    FROM information_schema.tables 
-                                    WHERE table_schema = 'public' 
-                                    AND table_name = 'usersData'
-                                );
-                   """)
+                        SELECT EXISTS (
+                        SELECT 1
+                        FROM information_schema.tables 
+                        WHERE table_name = 'usersdata'
+                    )
+                    """)
 
     check = cursor.fetchone()[0]
-
+    print("--"*50)
+    print(check)
+    print("--"*50)
     if check:
         return 'data_maker.make_group_task_start'
     else:

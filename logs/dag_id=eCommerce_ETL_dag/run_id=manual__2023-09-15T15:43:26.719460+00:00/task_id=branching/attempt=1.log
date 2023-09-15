@@ -1,0 +1,638 @@
+[2023-09-15T15:43:29.296+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: eCommerce_ETL_dag.branching manual__2023-09-15T15:43:26.719460+00:00 [queued]>
+[2023-09-15T15:43:29.309+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: eCommerce_ETL_dag.branching manual__2023-09-15T15:43:26.719460+00:00 [queued]>
+[2023-09-15T15:43:29.311+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2023-09-15T15:43:29.331+0000] {taskinstance.py:1327} INFO - Executing <Task(BranchPythonOperator): branching> on 2023-09-15 15:43:26.719460+00:00
+[2023-09-15T15:43:29.341+0000] {standard_task_runner.py:57} INFO - Started process 644 to run task
+[2023-09-15T15:43:29.350+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'eCommerce_ETL_dag', 'branching', 'manual__2023-09-15T15:43:26.719460+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/workflow.py', '--cfg-path', '/tmp/tmpwpzf5rry']
+[2023-09-15T15:43:29.359+0000] {standard_task_runner.py:85} INFO - Job 12: Subtask branching
+[2023-09-15T15:43:29.462+0000] {task_command.py:410} INFO - Running <TaskInstance: eCommerce_ETL_dag.branching manual__2023-09-15T15:43:26.719460+00:00 [running]> on host 228226a2581e
+[2023-09-15T15:43:29.683+0000] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='eCommerce_ETL_dag' AIRFLOW_CTX_TASK_ID='branching' AIRFLOW_CTX_EXECUTION_DATE='2023-09-15T15:43:26.719460+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-09-15T15:43:26.719460+00:00'
+[2023-09-15T15:43:29.741+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.744+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'log', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.749+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.751+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'job', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.758+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.781+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dag_code', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.790+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.793+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dag_pickle', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.797+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.802+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statistic', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.806+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.814+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_type', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.822+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.825+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'slot_pool', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.828+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.838+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_foreign_table', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.843+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.850+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_authid', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.854+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.858+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_shadow', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:29.867+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.870+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'connection', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.871+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.875+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'callback_request', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.879+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.881+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statistic_ext_data', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.883+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.885+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_roles', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:29.887+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.889+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'import_error', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.890+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.891+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_settings', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:29.896+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.900+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_file_settings', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:29.903+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.905+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_hba_file_rules', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:29.907+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.910+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'sla_miss', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.914+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.917+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_config', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:29.920+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.922+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_shmem_allocations', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:29.926+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.931+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'variable', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.934+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.936+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'serialized_dag', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.940+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.944+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_prepared_statements', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:29.950+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.952+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_largeobject', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.957+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.962+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_user_mapping', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.966+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.968+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_progress_vacuum', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:29.971+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.973+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_replication_origin_status', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:29.975+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.977+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_subscription', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.981+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.983+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_attribute', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.985+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.989+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_proc', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.993+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:29.996+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_class', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:29.999+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.002+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_attrdef', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.005+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.007+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_constraint', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.011+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.015+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_inherits', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.017+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.019+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_index', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.022+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.023+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_operator', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.024+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.026+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_opfamily', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.029+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.031+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_opclass', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.032+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.035+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_am', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.038+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.039+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_amop', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.040+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.043+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_amproc', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.045+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.047+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_language', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.048+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.049+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_largeobject_metadata', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.052+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.053+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_aggregate', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.055+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.056+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statistic_ext', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.058+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.060+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_rewrite', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.063+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.064+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_trigger', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.067+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.069+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_event_trigger', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.072+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.074+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_description', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.076+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.078+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_cast', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.081+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.084+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_progress_cluster', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.086+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.088+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_progress_create_index', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.090+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.092+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_progress_basebackup', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.094+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.096+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_user_mappings', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.098+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.101+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_enum', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.102+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.104+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_namespace', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.108+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.112+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_conversion', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.114+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.116+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_depend', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.117+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.118+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_database', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.119+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.120+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_db_role_setting', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.121+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.123+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_tablespace', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.124+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.126+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_auth_members', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.127+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.130+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_shdepend', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.133+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.134+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_shdescription', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.136+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.137+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_ts_config', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.141+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.143+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_ts_config_map', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.145+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.146+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_ts_dict', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.148+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.150+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_ts_parser', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.151+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.152+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_ts_template', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.154+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.155+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_extension', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.157+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.159+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_foreign_data_wrapper', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.160+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.162+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_foreign_server', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.166+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.168+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_policy', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.170+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.173+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_replication_origin', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.175+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.179+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_default_acl', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.181+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.182+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_init_privs', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.184+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.185+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_seclabel', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.186+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.187+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_shseclabel', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.189+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.190+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_collation', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.192+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.193+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_partitioned_table', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.197+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.201+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_range', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.203+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.205+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_transform', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.207+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.208+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_sequence', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.210+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.213+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_publication', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.215+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.217+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_publication_rel', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.218+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.219+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_subscription_rel', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.221+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.222+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_group', 'VIEW', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.223+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.225+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_user', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.227+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.230+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_policies', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.232+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.235+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_rules', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.239+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.241+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_views', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.246+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.248+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.249+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.250+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_matviews', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.252+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.254+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_indexes', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.255+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.257+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_sequences', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.259+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.262+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stats', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.265+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.267+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stats_ext', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.270+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.272+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_publication_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.274+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.277+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_locks', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.280+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.283+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_cursors', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.284+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.286+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_available_extensions', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.287+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.289+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_available_extension_versions', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.290+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.291+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_prepared_xacts', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.293+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.298+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_seclabels', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.299+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.300+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statio_user_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.302+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.304+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_all_indexes', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.306+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.307+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_timezone_abbrevs', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.309+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.311+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_timezone_names', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.313+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.315+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_sys_indexes', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.317+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.319+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_all_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.320+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.322+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_xact_all_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.323+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.325+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_sys_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.326+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.327+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_xact_sys_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.329+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.331+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_user_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.332+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.333+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_xact_user_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.335+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.336+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statio_all_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.337+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.339+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statio_sys_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.340+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.342+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_user_indexes', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.343+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.346+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statio_all_indexes', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.348+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.350+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statio_sys_indexes', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.351+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.352+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statio_user_indexes', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.353+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.355+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statio_all_sequences', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.356+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.357+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statio_sys_sequences', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.359+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.361+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_statio_user_sequences', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.363+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.365+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_activity', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.366+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.368+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_replication', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.370+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.371+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_slru', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.373+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.374+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_wal_receiver', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.375+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.377+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_subscription', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.381+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.384+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_ssl', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.386+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.390+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_gssapi', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.392+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.396+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_replication_slots', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.401+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.403+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_database', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.425+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.430+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_database_conflicts', 'VIEW', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.434+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.447+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_user_functions', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.455+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.458+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_xact_user_functions', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.461+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.464+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_archiver', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.465+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.468+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_bgwriter', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.486+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.492+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'pg_catalog', 'pg_stat_progress_analyze', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.497+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.500+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'columns', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.502+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.504+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'information_schema_catalog_name', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.505+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.506+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'collations', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.508+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.509+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'applicable_roles', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.516+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.520+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'administrable_role_authorizations', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.523+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.526+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'column_privileges', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.533+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.539+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'attributes', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.545+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.555+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'collation_character_set_applicability', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.557+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.560+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'character_sets', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.566+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.569+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'check_constraint_routine_usage', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.581+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.585+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'check_constraints', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.592+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.600+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'column_column_usage', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.603+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.604+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'column_domain_usage', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.607+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.610+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'column_udt_usage', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.614+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.621+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'constraint_column_usage', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.623+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.626+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'constraint_table_usage', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.628+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.633+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'domain_constraints', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.636+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.640+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'domain_udt_usage', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.643+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.650+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'domains', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.652+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.654+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'enabled_roles', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.656+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.658+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'sql_implementation_info', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.663+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.667+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'key_column_usage', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.669+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.672+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'parameters', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.673+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.675+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'referential_constraints', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.678+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.682+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'role_column_grants', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.683+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.689+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'sql_parts', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.691+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.699+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'routine_privileges', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.701+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.703+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'role_routine_grants', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.704+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.707+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'routines', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.710+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.714+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'schemata', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.717+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.719+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.722+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.724+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'sequences', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.726+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.729+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'sql_sizing', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.731+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.733+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'sql_features', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.735+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.737+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'table_constraints', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.739+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.742+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'transforms', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.744+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.746+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'table_privileges', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.748+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.750+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'role_table_grants', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.752+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.753+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'udt_privileges', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.755+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.757+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'triggered_update_columns', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.759+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.761+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'triggers', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.763+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.765+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'usage_privileges', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.768+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.770+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'role_udt_grants', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.772+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.776+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'role_usage_grants', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.779+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.782+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'user_defined_types', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.788+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.799+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'view_column_usage', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.810+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.820+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'view_routine_usage', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.830+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.832+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'view_table_usage', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.836+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.843+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'foreign_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.877+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.879+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'views', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.883+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.886+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'data_type_privileges', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.888+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.891+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', '_pg_user_mappings', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.895+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.902+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'element_types', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.907+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.911+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', '_pg_foreign_table_columns', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.913+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.924+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'column_options', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.926+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.929+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', '_pg_foreign_data_wrappers', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.934+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.937+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'foreign_data_wrapper_options', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.940+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.941+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'user_mapping_options', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.944+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.945+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'foreign_data_wrappers', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.948+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.949+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', '_pg_foreign_servers', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.956+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.960+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'foreign_server_options', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.967+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.970+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'foreign_servers', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.971+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.973+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', '_pg_foreign_tables', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.974+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.976+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'user_mappings', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.979+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.981+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'information_schema', 'foreign_table_options', 'VIEW', None, None, None, None, None, 'NO', 'NO', None)
+[2023-09-15T15:43:30.982+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.984+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'ab_user', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.986+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.987+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'ab_register_user', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.989+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:30.992+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dataset', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:30.998+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.000+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dag_schedule_dataset_reference', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.002+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.004+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dag', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.006+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.007+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'task_outlet_dataset_reference', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.009+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.015+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dataset_dag_run_queue', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.017+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.020+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'log_template', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.022+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.024+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dag_run', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.025+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.027+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dag_tag', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.032+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.033+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dag_owner_attributes', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.035+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.039+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dag_warning', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.041+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.042+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'ab_permission', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.047+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.049+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'ab_permission_view', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.050+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.052+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'ab_view_menu', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.053+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.055+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'ab_user_role', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.058+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.063+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'ab_role', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.065+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.067+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dagrun_dataset_event', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.068+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.070+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dataset_event', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.079+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.081+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'trigger', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.083+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.084+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'task_instance', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.085+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.086+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dag_run_note', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.088+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.090+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'ab_permission_view_role', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.096+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.102+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'task_fail', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.103+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.106+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'task_map', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.107+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.109+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'alembic_version', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.111+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.114+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'task_reschedule', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.120+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.123+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'xcom', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.125+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.127+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'task_instance_note', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.132+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.138+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'rendered_task_instance_fields', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.143+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.147+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'session', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.148+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.153+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'databasechangelog', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.155+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.157+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'databasechangeloglock', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.158+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.160+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'core_user', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.164+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.168+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'metabase_field', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.169+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.171+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'metabase_database', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.176+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.179+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'metabase_table', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.181+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.182+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'metabase_fieldvalues', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.187+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.189+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'report_cardfavorite', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.191+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.192+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'report_card', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.197+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.199+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'report_dashboard', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.200+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.201+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'report_dashboardcard', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.204+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.206+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'core_session', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.207+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.207+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'setting', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.209+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.214+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'activity', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.220+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.231+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'revision', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.232+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.234+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'view_log', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.238+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.239+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'data_migrations', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.240+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.241+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'pulse_card', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.243+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.247+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'pulse_channel', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.249+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.251+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dependency', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.253+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.254+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'pulse_channel_recipient', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.256+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.257+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'pulse', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.258+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.260+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dashboardcard_series', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.262+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.264+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'metric', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.266+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.267+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'card_label', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.268+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.271+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'label', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.272+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.278+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'metric_important_field', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.280+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.281+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'permissions_group', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.283+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.285+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'segment', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.287+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.288+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'permissions', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.289+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.290+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'permissions_revision', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.291+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.293+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'permissions_group_membership', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.296+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.298+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'query', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.299+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.300+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'query_cache', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.302+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.303+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'collection', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.304+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.306+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dashboard_favorite', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.307+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.309+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dimension', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.311+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.312+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'collection_permission_graph_revision', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.315+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.316+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'query_execution', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.317+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.319+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'computation_job_result', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.323+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.324+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'computation_job', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.326+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.330+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'sandboxes', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.332+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.333+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'qrtz_job_details', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.335+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.336+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'qrtz_triggers', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.338+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.339+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'qrtz_simple_triggers', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.340+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.341+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'qrtz_cron_triggers', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.343+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.346+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'qrtz_simprop_triggers', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.348+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.348+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'qrtz_blob_triggers', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.354+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.355+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'qrtz_calendars', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.356+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.358+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'qrtz_paused_trigger_grps', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.361+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.364+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'qrtz_fired_triggers', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.366+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.367+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'qrtz_scheduler_state', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.368+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.369+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'qrtz_locks', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.371+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.372+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'task_history', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.373+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.374+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'native_query_snippet', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.375+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.378+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'login_history', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.379+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.381+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'moderation_review', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.382+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.383+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'card_bookmark', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.385+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.387+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'secret', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.389+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.390+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'timeline_event', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.392+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.394+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dashboard_bookmark', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.395+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.398+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'collection_bookmark', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.400+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.401+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'timeline', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.402+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.404+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'bookmark_ordering', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.405+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.407+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'application_permissions_revision', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.408+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.409+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'persisted_info', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.411+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.413+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'http_action', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.414+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.416+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'action', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.421+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.422+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'query_action', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.423+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.425+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'implicit_action', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.427+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.432+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'parameter_card', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.433+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.436+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'dashboard_tab', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.437+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.439+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'model_index', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.440+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.441+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'model_index_value', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.442+0000] {logging_mixin.py:150} INFO - !!!!!!!!!!!!!!! CHECK TABLE 
+[2023-09-15T15:43:31.444+0000] {logging_mixin.py:150} INFO - ('ecommerce_db', 'public', 'connection_impersonations', 'BASE TABLE', None, None, None, None, None, 'YES', 'NO', None)
+[2023-09-15T15:43:31.451+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-09-15T15:43:31.453+0000] {python.py:216} INFO - Branch callable return None
+[2023-09-15T15:43:31.455+0000] {skipmixin.py:164} INFO - Following branch None
+[2023-09-15T15:43:31.457+0000] {skipmixin.py:224} INFO - Skipping tasks ['predata_maker.pre_make_group_task_start', 'data_maker.make_group_task_start']
+[2023-09-15T15:43:31.525+0000] {taskinstance.py:1345} INFO - Marking task as SUCCESS. dag_id=eCommerce_ETL_dag, task_id=branching, execution_date=20230915T154326, start_date=20230915T154329, end_date=20230915T154331
+[2023-09-15T15:43:31.565+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-09-15T15:43:31.786+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
