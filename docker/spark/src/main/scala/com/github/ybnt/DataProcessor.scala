@@ -20,7 +20,7 @@ object DataProcessor {
   //make table
   case class recommend(UserID: Int, item1: Int, item2: Int, item3: Int, item4: Int)
 
-  //need for calculate
+   //need for calculate
   case class itemPair(Item1: Int, Item2: Int, rating1:Int, rating2:Int)
   case class itemPairsSimilarity(item1: Int, item2: Int, score: Double, numPairs: Long)
 

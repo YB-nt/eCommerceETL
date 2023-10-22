@@ -10,7 +10,8 @@ import org.apache.spark.SparkConf
 
 
 object DataPreProcessor {
-  case class Logs(UserID: Int, Action: String, AccessPath: String, TimeStamp: Long, Rating: Int, ItemID: Int)
+  case class PreLogs(value:String)
+  case class Logs(UserID: Int, Action: String, Rating: Int, ItemID: Int)
   case class Users(UserID: Int, Username: String, Sex: Boolean, Address: String, Mail: String, BirthDate: Long)
   case class Items(ItemID: Int, Name: String, Price: Float, Category: String)
   case class Ratings(UserID: Int, ItemID: Int, rating: Int, timestamp: Long)
@@ -147,6 +148,35 @@ object DataPreProcessor {
     recommend
   }
 
+  def extractItemID = udf((protocol: String) => {
+    val p = "item_id=(\\d+)".r
+    p.findFirstMatchIn(protocol).map(_.group(1)).getOrElse("")
+  })
+
+  def extractAction = udf((protocol: String) => {
+    val p1 = "(\\w+)?".r
+    p1.findFirstMatchIn(protocol).map(_.group(0)).getOrElse("")
+  })
+
+  def splitLogData(spark:SparkSession,logs:Dataset[PreLogs]):Dataset[Logs]={
+    import spark.implicits._
+
+    val splitData = logs.withColumn("splitData",split(col("value"), " "))
+
+    val columnsToSelect = Array("UserID","Action","Rating","ItemID")
+
+    val df = splitData.withColumn("Rating",col("splitData").getItem(5).cast("int"))
+      .withColumn("UserID",col("splitData").getItem(6).cast("int"))
+      .withColumn("Protocol", col("splitData").getItem(8))
+      .withColumn("Action",extractAction(col("Protocol")))
+      .withColumn("ItemID",extractItemID(col("Protocol")).cast("int"))
+
+
+    val df2 = df.select(columnsToSelect.map(col): _*)
+
+    df2.as[Logs]
+  }
+
   def main(args: Array[String]) {
     Logger.getLogger("org").setLevel(Level.ERROR)
 
@@ -165,14 +195,6 @@ object DataPreProcessor {
     import spark.implicits._
 
     //define schema
-    val LogsSchema = new StructType()
-      .add("UserID", IntegerType, nullable = true)
-      .add("Action", StringType, nullable = true)
-      .add("AccessPath", StringType, nullable = true)
-      .add("timestamp", LongType, nullable = true)
-      .add("Rating", IntegerType, nullable = true)
-      .add("ItemID", IntegerType, nullable = true)
-
     val UsersSchema = new StructType()
       .add("UserID", IntegerType, nullable = true)
       .add("Username", StringType, nullable = true)
@@ -195,11 +217,9 @@ object DataPreProcessor {
 
     // read csv
     //    val logsData = spark.readStream.text("data/logs")
-    val logsData = spark.read
-      .option("header", "true")
-      .schema(LogsSchema)
-      .csv("data/log/log.csv")
-      .as[Logs]
+    val preLogsData = spark.read
+      .text("data/log/ecommerce.log")
+      .as[PreLogs]
 
     val usersData = spark.read
       .option("header", "true")
@@ -219,9 +239,11 @@ object DataPreProcessor {
       .csv("data/rating.dat")
       .as[Ratings]
 
+    val tempLogData = splitLogData(spark,preLogsData)
+    val logData: Dataset[Logs] = tempLogData.as[Logs](Encoders.product[Logs])
 
     val ratings = ratingData.select("UserID", "ItemID", "rating")
-    val recommendData = recommendation(spark,logsData,ratings)
+    val recommendData = recommendation(spark,logData,ratings)
 
     loadData(recommendData.toDF(),"recommendData")
     loadData(ratingData.toDF(),"ratingData")
