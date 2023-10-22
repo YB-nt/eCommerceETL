@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="EcommerceDataETL,PredataETL,PredataProcessing,ecommercedataetl" />
+    <profile name="sbt 1" modules="DataProcessing,EcommerceDataETL,PredataETL,PredataProcessing,ecommercedataetl" />
   </component>
 </project>

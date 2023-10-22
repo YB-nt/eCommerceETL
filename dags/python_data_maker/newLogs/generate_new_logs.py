@@ -117,16 +117,17 @@ class Loggenerator:
         user_agent = [self.faker.chrome(), self.faker.firefox(), self.faker.safari(), self.faker.internet_explorer(), self.faker.opera()]
         rng = WeightedChoice(user_agent, [0.5, 0.3, 0.1, 0.05, 0.05])
         return rng.run()
+    def init_user_preference(self):
+        return random.randint(1,5)
     
 
-    # 192.30.253.112 - - [02/Jan/2018:20:59:51 +0100] "GET /dolorem/dicta.csv HTTP/1.0" 200 5039 "https://example1.com/" "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_9) AppleWebKit/5351 (KHTML, like Gecko) Chrome/14.0.850.0 Safari/5351
-    # 75.250.189.172 - 09/Jul/2004:16:13:46 100324 GET View?item_id=100026&quantity=8 HTTP/1.0 http://oconnor-fletcher.com/terms/Item?id=100026 example2 5005 200 +0900 /at/product.csv Mozilla/5.0 (X11; Linux i686) AppleWebKit/536.1 (KHTML, like Gecko) Chrome/50.0.851.0 Safari/536.1
     def generate_logs(self):
         """log 형식으로 데이터 작성해주기 """
         logsdata =[]
         logdata  = [self.init_host()
                     ,self.init_date()
                     ,self.init_timezone()
+                    ,self.init_user_preference()
                     ,self.init_userid()
                     ,self.init_method()
                     ,self.init_protocol()

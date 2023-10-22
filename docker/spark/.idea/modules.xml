@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PredataProcessing.iml" filepath="$PROJECT_DIR$/.idea/modules/PredataProcessing.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PredataProcessing-build.iml" filepath="$PROJECT_DIR$/.idea/modules/PredataProcessing-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DataProcessing.iml" filepath="$PROJECT_DIR$/.idea/modules/DataProcessing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DataProcessing-build.iml" filepath="$PROJECT_DIR$/.idea/modules/DataProcessing-build.iml" />
     </modules>
   </component>
 </project>
